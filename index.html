@@ -54,6 +54,7 @@
   #app { display: flex; flex-direction: column; height: 100dvh; max-width: 480px; margin: 0 auto; position: relative; }
 
   header.topbar {
+    flex-shrink: 0;
     padding: 14px 16px calc(10px + env(safe-area-inset-top, 0px));
     padding-top: calc(14px + env(safe-area-inset-top, 0px));
     font-weight: 700; font-size: 18px;
@@ -64,11 +65,11 @@
   header.topbar .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.5); }
   header.topbar .dot.on { background: #4ade80; }
 
-  .view { flex: 1; overflow-y: auto; display: none; padding-bottom: 90px; }
+  .view { flex: 1; min-height: 0; overflow-y: auto; display: none; }
   .view.active { display: flex; flex-direction: column; }
 
   /* ---- Chat ---- */
-  #chat-messages { flex: 1; padding: 14px 12px; padding-bottom: 130px; display: flex; flex-direction: column; gap: 10px; }
+  #chat-messages { flex: 1; padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; }
   .bubble { max-width: 82%; padding: 10px 13px; border-radius: 16px; font-size: 15px; line-height: 1.4; white-space: pre-wrap; word-wrap: break-word; }
   .bubble.user { align-self: flex-end; background: var(--bubble-user); color: var(--bubble-user-text); border-bottom-right-radius: 4px; }
   .bubble.bot { align-self: flex-start; background: var(--bubble-bot); color: var(--bubble-bot-text); border-bottom-left-radius: 4px; }
@@ -76,8 +77,7 @@
   .chat-empty { margin: auto; text-align: center; color: var(--text-dim); font-size: 14px; padding: 20px; }
 
   .chat-input-bar {
-    position: fixed; left: 0; right: 0; bottom: 64px;
-    max-width: 480px; margin: 0 auto;
+    flex-shrink: 0;
     display: flex; gap: 8px; padding: 10px 12px;
     background: var(--bg-elev); border-top: 1px solid var(--border);
   }
@@ -157,8 +157,7 @@
 
   /* ---- Tab bar ---- */
   nav.tabbar {
-    position: fixed; left: 0; right: 0; bottom: 0;
-    max-width: 480px; margin: 0 auto;
+    flex-shrink: 0;
     display: flex; background: var(--bg-elev); border-top: 1px solid var(--border);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
